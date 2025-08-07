@@ -1,0 +1,625 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Booking</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href=" {% static 'assets/img/favicon.ico' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Restaurantly
+  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        </div>
+        <div class="languages d-none d-md-flex align-items-center">
+          <ul>
+            <!-- <li>En</li>
+            <li><a href="#">De</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">Grandi Woods</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="{% url 'index' %}" >Home<br></a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'room' %}">Room</a></li>
+            <li><a href="{% url 'near_by_places' %}">Near By Places</a></li>
+             
+            <li><a href="{% url 'gallery' %}">Our Gallery</a></li>
+            <!-- <li><a href="#chefs">Booking</a></li> -->
+            <!-- <li><a href="#gallery">Gallery</a></li> -->
+            <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li> -->
+            <li><a href="{% url 'contact' %}" >Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-book-a-table d-none d-xl-block" href="{% url 'booking' %}" >Booking</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+    <main class="main">
+
+    <!-- Page Title -->
+ <div class="page-title position-relative" data-aos="fade" style="background-image: url('{% static 'assets/img/hero4.jpg' %}');">
+  <div class="container position-relative">
+    <h1>Booking<br></h1>
+    <p>Plan your perfect stay with ease. Use our booking section to reserve your room today.</p>
+    <nav class="breadcrumbs">
+      <ol>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li class="current">Booking</li>
+      </ol>
+    </nav>
+  </div>
+</div><!-- End Page Title -->
+
+
+   <!-- Book A Table Section -->
+<section id="book-a-table" class="book-a-table section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>RESERVATION</h2>
+    <p>Book a Table</p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <form action="{% url 'booking' %}" method="post" role="form" class="booking-form">
+      {% csrf_token %}
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="date" name="arrival_date" class="form-control" id="arrival_date" required>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="date" name="departure_date" class="form-control" id="departure_date" required>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="number" class="form-control" name="adults" id="adults" placeholder="No of Adults" required>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <input type="number" class="form-control" name="children" id="children" placeholder="No of Children" required>
+        </div>
+      </div>
+
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Message (optional)"></textarea>
+      </div>
+
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">Book a Table</button>
+      </div>
+    </form>
+
+  </div>
+
+</section><!-- /Book A Table Section -->
+
+
+  </main>
+
+  <footer id="footer" class="footer   py-5">
+  <div class="container">
+    <div class="row gy-4">
+      
+      <!-- Grandi Woods Info -->
+      <div class="col-lg-4 col-md-6 footer-links">
+        <h4 class="fw-bold" style="font-size: 30px;">Grandi Woods</h4>
+        <p>
+          Welcome to Grandi Woods – where comfort meets wilderness in the serene village of Vattavada.
+          Enjoy thoughtfully designed cottages and cozy tent stays surrounded by misty landscapes,
+          organic cuisine, and warm hospitality. Slow down, reconnect, and explore Munnar’s high ranges
+          with us.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-4 col-md-6 footer-links">
+        <h4 class="fw-bold">Quick Links</h4>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'index' %}" class="  ">Home</a></li>
+          <li><a href="{% url 'about' %}" class="   ">About</a></li>
+          <li><a href="{% url 'near_by_places' %}" class="   ">Nearby Places</a></li>
+          <li><a href="{% url 'contact' %}" class="   ">Contact</a></li>
+          <li><a href="{% url 'booking' %}" class="   ">Booking</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-4 col-md-12 footer-links">
+        <h4 class="fw-bold">Contact</h4>
+        <p>Grandi Woods, Vattavada, Kerala, India</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> info@grandywoods.com</p>
+        <div class="social-links mt-3 d-flex gap-3">
+          <a href="#" class=" "><i class="bi bi-facebook"></i></a>
+          <a href="#" class=" "><i class="bi bi-instagram"></i></a>
+          <a href="#" class=" "><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class=" "><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="text-center mt-4 footer-links">
+      <p class="mb-0">&copy; 2025 <strong>Grandi Woods</strong>. All rights reserved.</p>
+      <small class="">Designed by <a href="https://vynzora.com/" class="">Vynzora</a></small>
+    </div>
+  </div>
+</footer>
+
+<!-- chatbot -->
+ 
+<div id="chatbot" class="main-card collapsed">
+    <button id="chatbot_toggle">
+        <svg id="open-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"/>
+          </svg>
+          <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+          </svg>
+    </button>
+  
+    <div class="main-title" style="background-color: #fff;">
+      <img src="{% static 'img1/favv.png' %}" alt="Logo" style="width: 40px; height: 40px; border-radius: 4px;" />
+      <span style="color: #2d531a;">Dream Casa Munnar</span>
+    </div>
+  
+    <div class="chat-area" id="message-box"></div>
+    <div class="line"></div>
+    <div class="input-div">
+      <input class="input-message" name="message" type="text" id="message" placeholder="Type your message ..." />
+      <button class="input-send" onclick="sendMessage()">
+        <svg style="width:24px;height:24px"><path d="M2,21L23,12L2,3V10L17,12L2,14V21Z"/></svg>
+      </button>
+    </div>
+  </div>
+
+<style>
+  @media (min-width: 450px) {
+    .main-card {
+      width: 96%;
+      max-width: 400px;
+      height: calc(100% - 32px) !important;
+      border-radius: 8px !important;
+      max-height: 600px;
+      margin: 16px!important;
+    }
+  }
+
+  .collapsed {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 24px !important;
+    bottom: 90px !important;
+    right: 25px !important;
+    margin: 16px!important;
+    overflow: hidden;
+  }
+
+  .main-card {
+    background: white;
+    color: black;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 420px;
+    max-height: 620px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 9999;
+  }
+
+  #chatbot_toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    height: 60px;
+    width: 60px;
+    background: #2d531a;
+    color: white;
+    padding: 14px;
+    z-index: 10;
+    cursor: pointer;
+    
+  }
+
+  #chatbot_toggle:hover {
+    background: #2d531a;
+
+  }
+
+  .main-title {
+    background-color: #2d531a;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 8px;
+  }
+
+  .main-title svg {
+    height: 24px;
+    margin-right: 8px;
+    
+  }
+
+  .chat-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-div {
+    height: 48px;
+    display: flex;
+    border-top: 1px solid #eee;
+  }
+
+  .input-message {
+    padding: 8px 16px;
+    flex-grow: 1;
+    border: none;
+  }
+
+  .input-message:focus {
+    outline: none;
+  }
+
+  .input-send {
+    background: transparent;
+    width: 48px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .input-send:hover {
+    background: lavender;
+  }
+
+  .input-send svg {
+    fill: #2d531a;
+  }
+
+  .chat-message-div {
+    display: flex;
+  }
+
+  .chat-message-sent,
+  .chat-message-received {
+    margin: 8px;
+    padding: 8px 16px;
+    background-color: lavender;
+    color: black;
+    border-radius: 8px;
+    animation: fadeIn 0.2s ease-in;
+  }
+
+  .chat-message-sent {
+    margin-left: auto;
+    border-radius: 8px 8px 2px 8px;
+  }
+
+  .chat-message-received {
+    margin-right: auto;
+    border-radius: 8px 8px 8px 2px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #bbb;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
+</style>
+<script>
+    let step = 0;
+    let userData = { name: "", phone: "", email: "", message: "" };
+  
+    function sendMessage() {
+  const msg = document.getElementById("message").value.trim();
+  if (!msg) return;
+  addMsg(msg);
+
+  if (step === 0) {
+    userData.name = msg;
+    setTimeout(() => addResponseMsg(`Hi ${userData.name}! 👋 What do you want to know?`), 500);
+    setTimeout(() => showOptions(), 1000);
+    step++;
+  } else if (step === 2) {
+    const phoneRegex = /^\+\d{1,3}\d{7,14}$/;
+    if (!phoneRegex.test(msg)) {
+      addResponseMsg("❌ Please enter a valid phone number with country code. Example: +919876543210");
+      return;
+    }
+    userData.phone = msg;
+    addResponseMsg("Thanks! Now please enter your email:");
+    step++;
+  } else if (step === 3) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(msg)) {
+      addResponseMsg("❌ That doesn't look like a valid email. Please enter a correct one.");
+      return;
+    }
+    userData.email = msg;
+    addResponseMsg("Got it! Lastly, please type your message:");
+    step++;
+  } else if (step === 4) {
+    userData.message = msg;
+    sendToAdmin();
+    step++;
+  }
+}
+
+  
+    function showOptions() {
+      const options = [
+        { label: "About", url: "about" },
+        { label: "Nearby Places", url: "near-by-places" },
+        { label: "Rooms", url: "rooms" },
+        { label: "Gallery", url: "our-gallery" },
+        { label: "Booking", url: "booking" },
+        { label: "Others", url: null }
+      ];
+  
+      const optionHTML = options.map(opt =>
+        opt.url
+          ? `<button onclick="navigateTo('${opt.url}')" class="option-btn">${opt.label}</button>`
+          : `<button onclick="startOthersFlow()" class="option-btn">${opt.label}</button>`
+      ).join(" ");
+  
+      const div = document.createElement("div");
+      div.className = "chat-message-div";
+      div.innerHTML = `<div class='chat-message-received'>${optionHTML}</div>`;
+      document.getElementById("message-box").appendChild(div);
+      scrollToBottom();
+    }
+  
+    function navigateTo(pageUrl) {
+      window.location.href = `/${pageUrl}/`;
+    }
+  
+    function startOthersFlow() {
+      addResponseMsg("Okay, please provide your phone number:");
+      step = 2;
+    }
+  
+    function sendToAdmin() {
+      addResponseMsg("Thank you! Sending your message...");
+  
+      fetch("/save-message/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": getCookie("csrftoken")
+        },
+        body: JSON.stringify(userData)
+      })
+      .then(res => res.json())
+      .then(data => {
+        addResponseMsg("Your message has been sent. We'll get back to you soon!");
+      })
+      .catch(err => {
+        addResponseMsg("Oops! Something went wrong. Please try again.");
+      });
+    }
+  
+    function addMsg(msg) {
+      const div = document.createElement("div");
+      div.className = "chat-message-div";
+      div.innerHTML = `<span style='flex-grow:1'></span><div class='chat-message-sent'>${msg}</div>`;
+      document.getElementById("message-box").appendChild(div);
+      document.getElementById("message").value = "";
+      scrollToBottom();
+    }
+  
+    function addResponseMsg(msg) {
+      const div = document.createElement("div");
+      div.className = "chat-message-div";
+      div.innerHTML = `<div class='chat-message-received'>${msg}</div>`;
+      document.getElementById("message-box").appendChild(div);
+      scrollToBottom();
+    }
+  
+    function scrollToBottom() {
+      const box = document.getElementById("message-box");
+      box.scrollTop = box.scrollHeight;
+    }
+  
+    function clearChat() {
+      document.getElementById("message-box").innerHTML = "";
+      userData = { name: "", phone: "", email: "", message: "" };
+      step = 0;
+    }
+  
+    document.getElementById("message").addEventListener("keyup", function (event) {
+      if (event.key === "Enter") sendMessage();
+    });
+  
+    document.getElementById("chatbot_toggle").onclick = function () {
+      const chatbot = document.getElementById("chatbot");
+      const openIcon = document.getElementById("open-icon");
+      const closeIcon = document.getElementById("close-icon");
+  
+      if (chatbot.classList.contains("collapsed")) {
+        chatbot.classList.remove("collapsed");
+        openIcon.style.display = "none";
+        closeIcon.style.display = "";
+        clearChat();
+        setTimeout(() => addResponseMsg("Hi 👋 What’s your name?"), 500);
+      } else {
+        chatbot.classList.add("collapsed");
+        openIcon.style.display = "";
+        closeIcon.style.display = "none";
+      }
+    };
+  
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.startsWith(name + "=")) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+  </script>
+  
+  <script>
+    document.getElementById("chatbot_toggle").onclick = function () {
+  const chatbot = document.getElementById("chatbot");
+  const openIcon = document.getElementById("open-icon");
+  const closeIcon = document.getElementById("close-icon");
+
+  if (chatbot.classList.contains("collapsed")) {
+    chatbot.classList.remove("collapsed");
+    openIcon.style.display = "none";
+    closeIcon.style.display = "";
+
+    // 🧹 Clear previous chat
+    document.getElementById("message-box").innerHTML = "";
+
+    // 🔄 Reset everything
+    step = 0;
+    userData = { name: "", phone: "", email: "", message: "" };
+
+    // 🗨️ Start fresh greeting
+    setTimeout(() => addResponseMsg("Hi 👋 What’s your name?"), 500);
+  } else {
+    chatbot.classList.add("collapsed");
+    openIcon.style.display = "";
+    closeIcon.style.display = "none";
+  }
+};
+
+  </script>
+  
+  <!-- chatbot -->
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

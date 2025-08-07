@@ -1,0 +1,363 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Dream Casa </title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'admin_static/assets/vendors/feather/feather.css' %}">
+  <link rel="stylesheet" href="{% static 'admin_static/assets/vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'admin_static/assets/vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'admin_static/assets/vendors/typicons/typicons.css' %}">
+  <link rel="stylesheet" href="{% static 'admin_static/assets/vendors/simple-line-icons/css/simple-line-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'admin_static/assets/vendors/css/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{% static 'admin_static/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'admin_static/assets/js/select.dataTables.min.css' %}">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'admin_static/assets/css/vertical-layout-light/style.css' %}">
+  <!-- endinject -->
+  <link rel="icon" href="{% static 'img1/favv.png' %}" type="image/x-icon">
+  <style>
+    * {
+  margin:0px;
+}
+.load {
+  width:100%;
+  height:100vh;
+   background-color: #fff;
+    display: flex;
+    margin-top: -30px;
+    justify-content: center;
+    align-items: center;
+}
+.load div {
+    width: 25px;
+    height: 25px;
+    background-color: #8f859e;
+    margin-left: 5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    margin-top: calc(50px - 12.5px);
+    animation-name: loading;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+.load-two {
+    animation-delay: 0.4s;
+}
+.load-three {
+    animation-delay: 0.8s;
+}
+@keyframes loading {
+    to {
+        opacity: 0.3;
+        transform: translateY(-25px);
+        -webkit-transform: translateY(-25px);
+        -moz-transform: translateY(-25px);
+        -ms-transform: translateY(-25px);
+        -o-transform: translateY(-25px);
+}
+
+}
+
+  </style>
+</head>
+
+<body class="with-welcome-text">
+  <div class="load">
+    <div class="load-one"></div>
+    <div class="load-two"></div>
+    <div class="load-three"></div>
+  </div>
+  <div id="loading" style="display: none;">
+  
+
+    <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+  <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
+    <div class="me-3">
+      <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
+        <span class="icon-menu"></span>
+      </button>
+    </div>
+    <div>
+      <a class="navbar-brand brand-logo" href="{% url 'dashboard' %}">
+        <img src="{% static 'img1/logo.png' %}" alt="logo" style="height: 20px; width: 300px;" />
+      </a>
+    
+    </div>
+  </div>
+  <div class="navbar-menu-wrapper d-flex align-items-top">
+    <ul class="navbar-nav">
+      <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
+        <!-- <h1 class="welcome-text">Welcome To  <span class="text-black fw-bold">Tinos Admin Dashboard</span></h1> -->
+        <!-- <h3 class="welcome-sub-text">Your performance summary this week </h3> -->
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto">
+      
+      <!-- <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+        <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="img-xs rounded-circle" src="{% static 'images/logo.png' %}" alt="Profile image" style="width: 100px;"> </a> -->
+        <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown"> -->
+          <!-- <div class="dropdown-header text-center"> -->
+            <!-- <img class="img-md rounded-circle" src="{% static 'images/logo.png' %}" alt="Profile image"> -->
+            <!-- <p class="mb-1 mt-3 font-weight-semibold">Tinos Software and Security Solutions</p>
+            <p class="fw-light text-muted mb-0">support@tinos.co.in</p> -->
+          <!-- </div> -->
+          
+          <!-- <a class="dropdown-item" href="logout_user"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign Out</a>
+        </div> -->
+      <!-- </li>
+    </ul> -->
+    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+      data-bs-toggle="offcanvas">
+      <span class="mdi mdi-menu"></span>
+    </button>
+  </div>
+</nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+  <div id="settings-trigger"><i class="ti-settings"></i></div>
+  <div id="theme-settings" class="settings-panel">
+    <i class="settings-close ti-close"></i>
+    <p class="settings-heading">SIDEBAR SKINS</p>
+    <div class="sidebar-bg-options selected" id="sidebar-light-theme">
+      <div class="img-ss rounded-circle bg-light border me-3"></div>Light
+    </div>
+    <div class="sidebar-bg-options" id="sidebar-dark-theme">
+      <div class="img-ss rounded-circle bg-dark border me-3"></div>Dark
+    </div>
+    <p class="settings-heading mt-2">HEADER SKINS</p>
+    <div class="color-tiles mx-0 px-4">
+      <div class="tiles success"></div>
+      <div class="tiles warning"></div>
+      <div class="tiles danger"></div>
+      <div class="tiles info"></div>
+      <div class="tiles dark"></div>
+      <div class="tiles default"></div>
+    </div>
+  </div>
+</div>
+
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'dashboard'%}">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+
+  
+
+
+    <li class="nav-item nav-category">Add Price</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#blog5" aria-expanded="false" aria-controls="blog">
+        <i class="menu-icon mdi mdi-currency-inr"></i>
+        <span class="menu-title">Add Price</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="blog5">
+        <ul class="nav flex-column sub-menu">
+
+          <li class="nav-item"> <a class="nav-link" href="{% url 'add_price' %}"> Add Price</a></li>
+         
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item nav-category">Client Reviews</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#blog" aria-expanded="false" aria-controls="blog">
+        <i class="menu-icon mdi mdi-card-text-outline"></i>
+        <span class="menu-title">Client Reviews</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="blog">
+        <ul class="nav flex-column sub-menu">
+
+          <li class="nav-item"> <a class="nav-link" href="{% url 'add_client_review' %}"> Add Client Reviews</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'view_client_reviews' %}"> View Clients Reviews</a></li>
+        </ul>
+      </div>
+    </li>
+
+
+   
+    <li class="nav-item nav-category">Gallery</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#contact1" aria-expanded="false" aria-controls="contact">
+        <i class="menu-icon mdi mdi-floor-plan"></i>
+        <span class="menu-title">Gallery</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="contact1">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'add_folders' %}"> Add Folders</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'view_folders' %}"> View Folders</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'add_images' %}"> Add Images</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'view_images' %}"> View Images</a></li>
+        </ul>
+      </div>
+    </li>
+
+
+
+    
+    <li class="nav-item nav-category">Near By Place</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#contact123" aria-expanded="false" aria-controls="contact">
+        <i class="menu-icon mdi mdi mdi-book-open"></i>
+        <span class="menu-title">Near By Place</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="contact123">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'add_near_by_place' %}"> Add Near By Place</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'view_near_by_place' %}"> View Near By Place</a></li>
+        </ul>
+      </div>
+    </li>
+
+
+    <li class="nav-item nav-category">Bookings</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#b1" aria-expanded="false" aria-controls="contact">
+        <i class="menu-icon mdi mdi-blur"></i>
+        <span class="menu-title">Bookings </span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="b1">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'booking_view' %}">Bookings</a></li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item nav-category">Chatbot messages</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#cont" aria-expanded="false" aria-controls="contact">
+        <i class="menu-icon mdi mdi-android"></i>
+        <span class="menu-title">Chatbot messages</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="cont">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'view_chatbot_messages' %}">Chatbot messages</a></li>
+        </ul>
+      </div>
+    </li>
+
+
+
+    
+    <li class="nav-item nav-category">Contact US</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#contact" aria-expanded="false" aria-controls="contact">
+        <i class="menu-icon mdi mdi-phone-log"></i>
+        <span class="menu-title">Contact US</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="contact">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'contact_view' %}">Contact US</a></li>
+        </ul>
+      </div>
+    </li>
+  
+
+    <li class="nav-item nav-category">Sign Out</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#chatbot1" aria-expanded="false" aria-controls="chatbot">
+        <i class="menu-icon mdi mdi-logout"></i> 
+        <span class="menu-title">Sign Out</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="chatbot1">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="logout_user">Sign Out</a></li>
+          <!-- <li class="nav-item"> <a class="nav-link" href="../pages/ui-features/dropdowns.html">Dropdowns</a></li>
+          <li class="nav-item"> <a class="nav-link" href="../pages/ui-features/typography.html">Typography</a></li> -->
+        </ul>
+      </div>
+    </li>
+   
+    
+  </ul>
+    <!-- {{ redirect_to_login_immediatly }} -->
+</nav>
+
+{% block content%}
+{% endblock %}
+</div>
+        <!-- plugins:js -->
+      
+  <!-- plugins:js -->
+  <script src="{% static 'admin_static/assets/vendors/js/vendor.bundle.base.js' %}"></script>
+  <script src="{% static 'admin_static/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="{% static 'admin_static/assets/vendors/chart.js/Chart.min.js' %}"></script>
+  <script src="{% static 'admin_static/assets/vendors/progressbar.js/progressbar.min.js' %}"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{% static 'admin_static/assets/js/off-canvas.js' %}"></script>
+  <script src="{% static 'admin_static/assets/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'admin_static/assets/js/template.js' %}"></script>
+  <script src="{% static 'admin_static/assets/js/settings.js' %}"></script>
+  <script src="{% static 'admin_static/assets/js/todolist.js' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'admin_static/assets/js/jquery.cookie.js' %}" type="text/javascript"></script>
+  <script src="{% static 'admin_static/assets/js/dashboard.js' %}"></script>
+  <script src="{% static 'admin_static/assets/js/proBanner.js' %}"></script>
+  <script src="{% static 'admin_static/assets/js/preload.js' %}"></script>
+  <!-- <script src="../../assets/js/Chart.roundedBarCharts.js"></script> -->
+  <!-- End custom js for this page-->
+
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+     
+     setTimeout(function() {
+       document.getElementById('loading').style.display = 'block';
+       document.querySelector('.load').style.display = 'none';
+     }, 2500); 
+    })
+      </script> -->
+      
+      <!-- <script>
+      
+   
+        function redirectToLogin() {
+            window.location.href = "{% url 'user_login' %}";
+        }
+ 
+        var timeout = setTimeout(redirectToLogin, 20000);
+
+        window.addEventListener('mousemove', resetTimeout);
+        window.addEventListener('keypress', resetTimeout);
+    
+        function resetTimeout() {
+            clearTimeout(timeout);
+            timeout = setTimeout(redirectToLogin, 20000);
+        }
+    </script> -->
+    
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Add Client Reviews</h4>
+          <form class="forms-sample" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+            <div class="form-group">
+              <label for="ClientName">Client Name</label>
+              <input type="text" class="form-control" id="ClientName" name="client_name" placeholder="Client Name" required>
+            </div>
+            <div class="form-group">
+              <label for="designation">Designation</label>
+              <input type="text" class="form-control" id="designation" name="designation" placeholder="Designation">
+            </div>
+            <div class="form-group">
+              <label for="review">Review</label>
+              <textarea class="form-control" name="review" id="review" rows="3" style="height: 150px;" placeholder="Enter your Review" oninput="checkCharacterLimit(this)" required></textarea>
+              <span id="character_error" style="color: red; display: none;">Maximum 150 characters allowed</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="imageFile">Client Image</label>
+            <input type="file" class="form-control-file" id="imageFile" name="client_image" accept="image/*">
+        </div>
+
+     
+            <div class="form-check form-check-flat form-check-primary">
+              <label class="form-check-label">
+                <!-- <input type="checkbox" class="form-check-input">
+                Remember me -->
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <!-- <button class="btn btn-light">Cancel</button> -->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('product_name').addEventListener('input', function() {
+      var nameInput = this.value;
+      if (nameInput.length > 50) {
+          document.getElementById('name_error').style.display = 'block';
+      } else {
+          document.getElementById('name_error').style.display = 'none';
+      }
+  });
+
+
+  function checkCharacterLimit(textarea) {
+      var maxLength = 400; // Maximum character limit
+      var currentLength = textarea.value.length;
+
+      if (currentLength > maxLength) {
+          document.getElementById('character_error').style.display = 'block';
+      } else {
+          document.getElementById('character_error').style.display = 'none';
+      }
+  }
+</script>
+{% endblock %}

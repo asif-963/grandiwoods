@@ -1,0 +1,29 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Add Price</h4>
+          <form class="forms-sample" method="POST"> 
+            {% csrf_token %}
+        
+            <div class="form-group">
+              <label for="price_per_night">Price Per Night</label>
+              <input type="number" class="form-control" id="price_per_night" name="price_per_night" placeholder="Price Per Night" value="{{ current_price.price_per_night }}" required>
+            </div>
+            <div class="form-group">
+              <label for="offer_price">Offer Price</label>
+              <input type="number" class="form-control" id="offer_price" name="offer_price" value="{{ current_price.offer_price }}" placeholder="Offer Price">
+            </div>
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+          </form> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

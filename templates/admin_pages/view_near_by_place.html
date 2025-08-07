@@ -1,0 +1,66 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="col-lg-12 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Place Details</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered" style="width: 1400px;">
+                    <thead class="thead-light">
+                        <tr>
+                          <th>Name</th>
+                          <th>Description</th>
+                          <th>Image</th>
+                          <th>Created Date</th>
+                          <th>Update</th>
+                          <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for place in places %}
+                      <tr>
+                          <td style="width: 200px;">{{ place.name }}</td>
+                          <td style="max-width: 500px; /* Set the maximum width of the cell */
+                          word-wrap: break-word; /* Break words if they exceed the width */
+                          overflow-wrap: break-word; /* Ensures long words break onto the next line */
+                          white-space: normal; /* Allows wrapping onto multiple lines */
+                          padding: 10px; ">
+                            {{ place.description | safe }}
+                        </td>
+                        
+                        
+                          <td style="width: 150px;">
+                              {% if place.image %}
+                              <img src="{{ place.image.url }}" alt="Blog Image" style="width: 80px; height: 80px;">
+                              {% else %}
+                              <p>No image available</p>
+                              {% endif %}
+                          </td>
+                          <td style="width: 150px;">{{ place.created_date|date:"Y-m-d" }}</td>
+                            <td>
+                                <a href="{% url 'update_near_by_place' place.id %}" class="btn btn-warning btn-sm">
+                                    <i class="mdi mdi-cloud-upload" aria-hidden="true"></i> Update
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete_near_by_place' place.id %}" class="btn btn-danger btn-sm">
+                                    <i class="mdi mdi-delete" aria-hidden="true"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3" class="text-center">No blogs available.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

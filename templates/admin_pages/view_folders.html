@@ -1,0 +1,46 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="col-lg-12 stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Folder Details</h4>
+            <div class="table-responsive">
+                <table class="table table-bordered" style="width: 1400px;">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Folder Name</th>
+                            <th>Update</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for folder in folders %}
+                        <tr>
+                            <td>{{ folder.name }}</td>
+                            <td>
+                                <a href="{% url 'update_folder' folder.id %}" class="btn btn-warning btn-sm">
+                                    <i class="mdi mdi-cloud-upload" aria-hidden="true"></i> Update
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'delete_folder' folder.id %}" class="btn btn-danger btn-sm">
+                                    <i class="mdi mdi-delete" aria-hidden="true"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3" class="text-center">No folders available.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

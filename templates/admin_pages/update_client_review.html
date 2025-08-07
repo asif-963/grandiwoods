@@ -1,0 +1,79 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Update Client Review</h4>
+          <!-- <p class="card-description">
+            Basic form layout
+          </p> -->
+          <form class="forms-sample" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+            <div class="form-group">
+              <label for="ClientName">Client Name</label>
+              <input type="text" class="form-control" id="ClientName" name="client_name" value="{{client_reviews.client_name}}" placeholder="Client Name">
+            </div>
+            <div class="form-group">
+              <label for="designation">Designation</label>
+              <input type="text" class="form-control" id="designation" name="designation" placeholder="Designation" value="{{client_reviews.designation}}">
+            </div>
+            <div class="form-group">
+              <label for="exampleDescription">Review</label>
+              <textarea class="form-control" name="review" id="exampleDescription" rows="3" style="height: 150px;" placeholder="Enter your Review" oninput="checkCharacterLimit(this)" required>{{client_reviews.review}}</textarea>
+              <span id="character_error" style="color: red; display: none;">Maximum 150 characters allowed</span>
+          </div>
+          <div class="form-group">
+            <label>Current Client Image</label><br>
+            {% if client_reviews.client_image %}
+                <img src="{{ client_reviews.client_image.url }}" alt="Current Image" style="width: 150px; height: 150px;">
+                <br>
+                
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+        </div>
+        <!-- New Client Image -->
+        <div class="form-group">
+            <label for="imageFile">Upload New Client Image</label><br>
+            <input type="file" class="form-control-file" id="imageFile" name="client_image" accept="image/*">
+        </div>
+        <div class="form-check form-check-flat form-check-primary">
+          <label class="form-check-label">
+            <!-- <input type="checkbox" class="form-check-input">
+            Remember me -->
+          </label>
+        </div>
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('product_name').addEventListener('input', function() {
+      var nameInput = this.value;
+      if (nameInput.length > 50) {
+          document.getElementById('name_error').style.display = 'block';
+      } else {
+          document.getElementById('name_error').style.display = 'none';
+      }
+  });
+
+
+  function checkCharacterLimit(textarea) {
+      var maxLength = 400; // Maximum character limit
+      var currentLength = textarea.value.length;
+
+      if (currentLength > maxLength) {
+          document.getElementById('character_error').style.display = 'block';
+      } else {
+          document.getElementById('character_error').style.display = 'none';
+      }
+  }
+</script>
+{% endblock %}

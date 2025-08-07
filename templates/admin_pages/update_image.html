@@ -1,0 +1,71 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Update Image</h4>
+          <form class="forms-sample" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="folder">Folder</label>
+              <select class="form-control" id="folder" name="folder">
+                {% for folder in folders %}
+                  <option value="{{ folder.id }}" {% if folder.id == image.folder.id %}selected{% endif %}>{{ folder.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="currentImages">Current Images</label><br>
+              <div class="image-grid">
+                {% for img in image.images.all %}
+                  <div class="image-item">
+                    <img src="{{ img.image.url }}" alt="Current Image">
+                    <input type="checkbox" name="remove_image" value="{{ img.id }}" class="remove-checkbox"> Remove
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="imageFile">Upload New Image</label><br>
+              <input type="file" class="form-control-file" id="imageFile" name="image" accept="image/*" multiple>
+            </div>
+
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust gap as needed */
+}
+
+.image-item {
+    position: relative;
+    flex: 1 0 21%; /* Adjust width to fit the grid */
+    box-sizing: border-box;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.remove-checkbox {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: white; /* To make it visible if over image */
+}
+</style>
+{% endblock %}

@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{% static 'img1/favv.png' %}" type="image/x-icon">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <title>Login Page</title>
+  <style>
+    /* CSS Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Asap', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #8f859e; /* Grayish Red */
+    }
+
+    /* Colors */
+    :root {
+      --green-seaweed: rgba(2, 128, 144, 1);
+      --blue-queen: rgba(69, 105, 144, 1);
+      --red-fire: #8f859e;
+    }
+
+    /* Login Form Styles */
+    .login {
+      overflow: hidden;
+      background-color: white;
+      padding: 40px 30px 30px 30px;
+      border-radius: 10px;
+      max-width: 800px; /* Increased width */
+      width: 400px;
+      box-shadow: 5px 10px 10px rgba(2, 128, 144, 0.2);
+      position: relative;
+      text-align: center;
+    }
+
+    .login::before,
+    .login::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-top-left-radius: 40%;
+      border-top-right-radius: 45%;
+      border-bottom-left-radius: 35%;
+      border-bottom-right-radius: 40%;
+      z-index: -1;
+    }
+
+    .login::before {
+      left: 40%;
+      bottom: -130%;
+      background-color: rgba(69, 105, 144, 0.15);
+      animation: wawes 6s infinite linear;
+    }
+
+    .login::after {
+      left: 35%;
+      bottom: -125%;
+      background-color: rgba(2, 128, 144, 0.2);
+      animation: wawes 7s infinite;
+    }
+
+    /* Logo */
+    .login img {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+
+    /* Input Fields */
+    .login > input {
+      display: block;
+      border-radius: 5px;
+      font-size: 16px;
+      background: white;
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 15px 0;
+      transition: border-color 0.3s;
+    }
+
+    .login > input:focus {
+      border-color: var(--green-seaweed);
+      outline: none;
+    }
+
+    /* Login Button */
+    .login > button {
+      cursor: pointer;
+      color: #fff;
+      font-size: 16px;
+      text-transform: uppercase;
+      width: 100%;
+      border: 0;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      background-color: var(--red-fire);
+      transition: background-color 300ms, transform 200ms;
+    }
+
+    .login > button:hover {
+      background-color: #7a707d; /* Darker shade of red */
+      transform: translateY(-2px);
+    }
+
+    /* Link */
+    a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.6);
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: 12px;
+    }
+
+    /* Keyframe Animation */
+    @keyframes wawes {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      .login {
+        padding: 20px;
+        width: 90%;
+      }
+
+      .login img {
+        max-width: 80px;
+        margin-bottom: 15px;
+      }
+
+      .login > input {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      .login > button {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .login {
+        padding: 15px;
+      }
+
+      .login > input {
+        font-size: 12px;
+        padding: 7px;
+      }
+
+      .login > button {
+        padding: 8px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <form class="login"method="POST" action="">{% csrf_token %}
+    <img src="{% static 'img1/logo.png' %}" alt="Logo"> <!-- Use the appropriate path to your logo -->
+    <input type="text" placeholder="Username" name="username" required>
+    <input type="password" placeholder="Password" name="password" required>
+    <button type="submit">Login</button>
+  </form>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script>
+    {% if messages %}
+        {% for message in messages %}
+            toastr.success("{{ message }}");
+        {% endfor %}
+    {% endif %}
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+});
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+
+<script>
+$(window).on('load', function() {
+    $(".page-loader").fadeOut("slow");
+});
+</script>
+
+<style>
+  /* Customize the toast background color and text color */
+  #toast-container > .toast {
+      background-color: #065265 !important; /* Set the background color */
+      color: white !important; /* Set the text color */
+  }
+  
+  /* Customize the title color inside the toast */
+  #toast-container > .toast .toast-title {
+      color: white !important;
+  }
+  
+  /* Customize the message color inside the toast */
+  #toast-container > .toast .toast-message {
+      color: white !important;
+  }
+  
+  /* Customize the progress bar color */
+  #toast-container > .toast.toast-success {
+      border-color: #243fa2 !important; /* Match the border to background */
+  }
+  
+  #toast-container > .toast .toast-progress {
+      background-color: white !important; /* Progress bar color */
+  }
+  </style>
+  
+<!-- Toast -->
+
+
+  <!-- Back to Top -->
+  
+
+
+</body>
+</html>

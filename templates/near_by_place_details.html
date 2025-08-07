@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{{ place.name }}</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href=" {% static 'assets/img/favicon.ico' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Restaurantly
+  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        </div>
+        <div class="languages d-none d-md-flex align-items-center">
+          <ul>
+            <!-- <li>En</li>
+            <li><a href="#">De</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">Grandi Woods</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="{% url 'index' %}" >Home<br></a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'room' %}">Room</a></li>
+            <li><a href="{% url 'near_by_places' %}" class="active">Near By Places</a></li>
+             
+            <li><a href="{% url 'gallery' %}">Our Gallery</a></li>
+            <!-- <li><a href="#chefs">Booking</a></li> -->
+            <!-- <li><a href="#gallery">Gallery</a></li> -->
+            <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li> -->
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-book-a-table d-none d-xl-block" href="{% url 'booking' %}">Booking</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+    <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title position-relative" data-aos="fade" style="background-image: url('{% static 'assets/img/hero4.jpg' %}');">
+      <div class="container position-relative">
+        <h1>Near By Places <br></h1>
+<p>Conveniently located near parks, shops, restaurants, and clinics for your daily needs.</p>
+
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="current">Near By Places</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+<section id="nearby" class="nearby-section py-5">
+  <div class="container">
+    <div class="row">
+
+      <!-- Main Place Section (Left) -->
+      <div class="col-lg-8 mb-4">
+        {% if place.image %}
+        <img src="{{ place.image.url }}" class="img-fluid rounded mb-3 shadow" style="width: 100%; height: 450px; object-fit: cover;" alt="{{ place.name }}">
+        {% endif %}
+       <h3 class="fw-bold">{{ place.name }}</h3>
+        <p>{{ place.description|safe }}</p>
+
+      </div>
+
+      <!-- Sidebar with Other Nearby Places (Right) -->
+      <div class="col-lg-4">
+        <div class="p-3 shadow-sm rounded">
+          <h5 class="fw-bold text-white text-center py-2 mb-4" style="background-color: #2d531a;">Other Places</h5>
+
+          {% for item in other_places %}
+          <a href="{% url 'nearby_place_detail' item.pk %}" class="text-decoration-none text-dark">
+            <div class="d-flex align-items-center mb-3">
+              <img src="{{ item.image.url }}" class="rounded me-3" style="width: 60px; height: 60px; object-fit: cover;" alt="{{ item.name }}">
+              <div>
+                <h6 class="mb-1">{{ item.name }}</h6>
+                <small class="" style="color:#d1d2d3;">{{ item.created_date|date:"d-m-Y" }}</small>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .nearby-section h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .nearby-section h6 {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .nearby-section small {
+    color: #6c757d;
+  }
+</style>
+
+
+  </main>
+
+  <footer id="footer" class="footer   py-5">
+  <div class="container">
+    <div class="row gy-4">
+      
+      <!-- Grandi Woods Info -->
+      <div class="col-lg-4 col-md-6 footer-links">
+        <h4 class="fw-bold" style="font-size: 30px;">Grandi Woods</h4>
+        <p>
+          Welcome to Grandi Woods – where comfort meets wilderness in the serene village of Vattavada.
+          Enjoy thoughtfully designed cottages and cozy tent stays surrounded by misty landscapes,
+          organic cuisine, and warm hospitality. Slow down, reconnect, and explore Munnar’s high ranges
+          with us.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-4 col-md-6 footer-links">
+        <h4 class="fw-bold">Quick Links</h4>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'index' %}" class="  ">Home</a></li>
+          <li><a href="{% url 'about' %}" class="   ">About</a></li>
+          <li><a href="{% url 'near_by_places' %}" class="   ">Nearby Places</a></li>
+          <li><a href="{% url 'contact' %}" class="   ">Contact</a></li>
+          <li><a href="{% url 'booking' %}" class="   ">Booking</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-4 col-md-12 footer-links">
+        <h4 class="fw-bold">Contact</h4>
+        <p>Grandi Woods, Vattavada, Kerala, India</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> info@grandywoods.com</p>
+        <div class="social-links mt-3 d-flex gap-3">
+          <a href="#" class=" "><i class="bi bi-facebook"></i></a>
+          <a href="#" class=" "><i class="bi bi-instagram"></i></a>
+          <a href="#" class=" "><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class=" "><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="text-center mt-4 footer-links">
+      <p class="mb-0">&copy; 2025 <strong>Grandi Woods</strong>. All rights reserved.</p>
+      <small class="">Designed by <a href="https://vynzora.com/" class="">Vynzora</a></small>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

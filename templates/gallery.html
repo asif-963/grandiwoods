@@ -1,0 +1,359 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Gallery</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href=" {% static 'assets/img/favicon.ico' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Restaurantly
+  * Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header fixed-top">
+
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+        </div>
+        <div class="languages d-none d-md-flex align-items-center">
+          <ul>
+            <!-- <li>En</li>
+            <li><a href="#">De</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-cente">
+
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">Grandi Woods</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="{% url 'index' %}" >Home<br></a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'room' %}">Room</a></li>
+            <li><a href="{% url 'near_by_places' %}">Near By Places</a></li>
+             
+            <li><a href="{% url 'gallery' %}" class="active">Our Gallery</a></li>
+            <!-- <li><a href="#chefs">Booking</a></li> -->
+            <!-- <li><a href="#gallery">Gallery</a></li> -->
+            <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul>
+                <li><a href="#">Dropdown 1</a></li>
+                <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                  <ul>
+                    <li><a href="#">Deep Dropdown 1</a></li>
+                    <li><a href="#">Deep Dropdown 2</a></li>
+                    <li><a href="#">Deep Dropdown 3</a></li>
+                    <li><a href="#">Deep Dropdown 4</a></li>
+                    <li><a href="#">Deep Dropdown 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Dropdown 2</a></li>
+                <li><a href="#">Dropdown 3</a></li>
+                <li><a href="#">Dropdown 4</a></li>
+              </ul>
+            </li> -->
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-book-a-table d-none d-xl-block" href="{% url 'booking' %}">Booking</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+    <main class="main">
+
+    <!-- Page Title -->
+  <div class="page-title position-relative" data-aos="fade" style="background-image: url('{% static 'assets/img/hero4.jpg' %}');">
+  <div class="container position-relative">
+    <h1>Gallery<br></h1>
+    <p>Explore stunning images of our homestay, nature views, cozy rooms, and unforgettable moments in Munnar.</p>
+    <nav class="breadcrumbs">
+      <ol>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li class="current">Gallery</li>
+      </ol>
+    </nav>
+  </div>
+</div><!-- End Page Title -->
+
+
+{% load static %}
+
+<!-- Gallery Section with Filters and Modal -->
+<section id="gallery" class="gallery section">
+  <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+    <!-- Filter Tabs -->
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul class="menu-filters isotope-filters list-inline d-flex gap-3 flex-wrap justify-content-center">
+          <li class="list-inline-item filter-active btn px-3 py-2" style="border-color: #2d531a; color: #fff;" data-filter="*">All</li>
+          {% for folder in folders %}
+            <li class="list-inline-item btn px-3 py-2" style="border-color: #2d531a; color: #fff;" data-filter=".filter-{{ folder.name|slugify }}">{{ folder.name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
+      {% for image in images %}
+        <div class="col-lg-4 col-md-6 gallery-item isotope-item filter-{{ image.gallery.folder.name|slugify }}">
+          <img src="{{ image.image.url }}" class="img-fluid gallery-img" data-src="{{ image.image.url }}" alt="">
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal Viewer -->
+<div class="image-modal" id="imageModal">
+  <button class="close-btn" id="closeModal">✖</button>
+  <a id="downloadImage" class="download-btn" download target="_blank">⬇</a>
+  <img id="modalImage" src="" alt="Expanded Image">
+</div>
+
+<!-- Styles -->
+<style>
+  .gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .menu-filters li {
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .menu-filters li.filter-active,
+  .menu-filters li:hover {
+    background-color: #2d531a;
+    color: #fff !important;
+    border-color: #2d531a;
+  }
+
+  /* Modal Styles */
+  .image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .image-modal img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .image-modal .close-btn,
+  .image-modal .download-btn {
+    position: absolute;
+    top: 20px;
+    background-color: #fff;
+    border: none;
+    font-size: 22px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .image-modal .close-btn {
+    right: 60px;
+  }
+
+  .image-modal .download-btn {
+    right: 10px;
+  }
+
+  .image-modal .close-btn:hover,
+  .image-modal .download-btn:hover {
+    background-color: #ccc;
+  }
+</style>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Isotope
+    const iso = new Isotope('.isotope-container', {
+      itemSelector: '.isotope-item',
+      layoutMode: 'fitRows'
+    });
+
+    // Filter buttons
+    const filters = document.querySelectorAll('.menu-filters li');
+    filters.forEach(el => {
+      el.addEventListener('click', function () {
+        filters.forEach(btn => btn.classList.remove('filter-active'));
+        this.classList.add('filter-active');
+        const filterValue = this.getAttribute('data-filter');
+        iso.arrange({ filter: filterValue });
+      });
+    });
+
+    // Modal Elements
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const downloadBtn = document.getElementById('downloadImage');
+    const closeModal = document.getElementById('closeModal');
+
+    // Open modal on image click
+    document.querySelectorAll('.gallery-img').forEach(img => {
+      img.addEventListener('click', function () {
+        const imgUrl = this.getAttribute('data-src');
+        modalImg.src = imgUrl;
+        downloadBtn.href = imgUrl;
+        modal.style.display = 'flex';
+      });
+    });
+
+    // Close modal
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Close modal if clicked outside the image
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+
+  </main>
+
+  <footer id="footer" class="footer   py-5">
+  <div class="container">
+    <div class="row gy-4">
+      
+      <!-- Grandi Woods Info -->
+      <div class="col-lg-4 col-md-6 footer-links">
+        <h4 class="fw-bold" style="font-size: 30px;">Grandi Woods</h4>
+        <p>
+          Welcome to Grandi Woods – where comfort meets wilderness in the serene village of Vattavada.
+          Enjoy thoughtfully designed cottages and cozy tent stays surrounded by misty landscapes,
+          organic cuisine, and warm hospitality. Slow down, reconnect, and explore Munnar’s high ranges
+          with us.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-lg-4 col-md-6 footer-links">
+        <h4 class="fw-bold">Quick Links</h4>
+        <ul class="list-unstyled">
+          <li><a href="{% url 'index' %}" class="  ">Home</a></li>
+          <li><a href="{% url 'about' %}" class="   ">About</a></li>
+          <li><a href="{% url 'near_by_places' %}" class="   ">Nearby Places</a></li>
+          <li><a href="{% url 'contact' %}" class="   ">Contact</a></li>
+          <li><a href="{% url 'booking' %}" class="   ">Booking</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-4 col-md-12 footer-links">
+        <h4 class="fw-bold">Contact</h4>
+        <p>Grandi Woods, Vattavada, Kerala, India</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> info@grandywoods.com</p>
+        <div class="social-links mt-3 d-flex gap-3">
+          <a href="#" class=" "><i class="bi bi-facebook"></i></a>
+          <a href="#" class=" "><i class="bi bi-instagram"></i></a>
+          <a href="#" class=" "><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class=" "><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="text-center mt-4 footer-links">
+      <p class="mb-0">&copy; 2025 <strong>Grandi Woods</strong>. All rights reserved.</p>
+      <small class="">Designed by <a href="https://vynzora.com/" class="">Vynzora</a></small>
+    </div>
+  </div>
+</footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
