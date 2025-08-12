@@ -42,14 +42,9 @@ class BookingForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['arrival_date'].input_formats = ['%Y-%m-%d']  # format from <input type="date">
+        # Correct format for <input type="date">
+        self.fields['arrival_date'].input_formats = ['%Y-%m-%d']
         self.fields['departure_date'].input_formats = ['%Y-%m-%d']
-
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['arrival_date'].input_formats = ['%d-%m-%Y']
-        self.fields['departure_date'].input_formats = ['%d-%m-%Y']
 
 
 
