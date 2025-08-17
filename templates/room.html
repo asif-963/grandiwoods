@@ -339,19 +339,15 @@ function closeLightbox() {
 </script>
 
 
-   
 <section id="events" class="events section">
-   <div class="container section-title" data-aos="fade-up">
-     <h2>Our Guests</h2>
-      <p>Memorable moments at Grandi Woods</p>
-</div>
-  
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Our Guests</h2>
+    <p>Memorable moments at Grandi Woods</p>
+  </div>
+
   <img class="slider-bg" src="{% static 'assets/img/hero3.jpg' %}" alt="" data-aos="fade-in">
 
   <div class="container">
- 
-   
-
     <div class="swiper init-swiper" data-aos="fade-up" data-aos-delay="100">
       <script type="application/json" class="swiper-config">
         {
@@ -372,7 +368,9 @@ function closeLightbox() {
       <div class="swiper-wrapper">
         {% for guest in guests %}
         <div class="swiper-slide">
-          <img src="{{ guest.image.url }}" class="img-fluid" style="width: 100%; height: 600px; object-fit: cover;" alt="{{ guest.name }}">
+          <img src="{{ guest.image.url }}" 
+               class="img-fluid guest-img" 
+               alt="{{ guest.name }}">
         </div>
         {% endfor %}
       </div>
@@ -381,6 +379,29 @@ function closeLightbox() {
     </div>
   </div>
 </section>
+
+<style>
+  /* Responsive image styling */
+  .guest-img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* adjusts dynamically to screen height */
+    object-fit: cover;
+    border-radius: 12px; /* optional for a nicer look */
+  }
+
+  /* Ensure swiper takes full width */
+  .swiper {
+    width: 100%;
+  }
+
+  /* Adjust container on smaller devices */
+  @media (max-width: 768px) {
+    .guest-img {
+      max-height: 60vh;
+    }
+  }
+</style>
 
 
   </main>
