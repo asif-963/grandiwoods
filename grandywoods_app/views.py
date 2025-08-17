@@ -6,7 +6,7 @@ from django.contrib import messages
 import random
 
 from .models import ContactModel, NearByPlace, ClientReview, Gallery, Folder, GalleryImage, Booking, RoomPrice, Guest
-from .forms import ContactModelForm, NearByPlaceForm, ClientReviewForm, GalleryForm, FolderForm, BookingForm
+from .forms import ContactModelForm, NearByPlaceForm, ClientReviewForm, GalleryForm, FolderForm, BookingForm, GuestForm
 
 
 def index(request):
@@ -409,3 +409,44 @@ def delete_chatbot_message(request, message_id):
     message.delete()
     return redirect('view_chatbot_messages')
 
+
+# Add guest
+@login_required(login_url='user_login')
+def add_guest(request):
+    if request.method == "POST":
+        form = GuestForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            # messages.success(request, "Guest added successfully.")
+            return redirect('view_guests')
+    else:
+        form = GuestForm()
+    return render(request, "admin_pages/add_guests.html", {"form": form})
+
+# View guests
+@login_required(login_url='user_login')
+def view_guests(request):
+    guests = Guest.objects.all().order_by('-created_date')
+    return render(request, "admin_pages/view_guests.html", {"guests": guests})
+
+# Update guest
+@login_required(login_url='user_login')
+def update_guest(request, pk):
+    guest = get_object_or_404(Guest, pk=pk)
+    if request.method == "POST":
+        form = GuestForm(request.POST, request.FILES, instance=guest)
+        if form.is_valid():
+            form.save()
+            # messages.success(request, "Guest updated successfully.")
+            return redirect('view_guests')
+    else:
+        form = GuestForm(instance=guest)
+    return render(request, "admin_pages/update_guests.html", {"form": form, "guest": guest})
+
+# Delete guest
+@login_required(login_url='user_login')
+def delete_guest(request, pk):
+    guest = get_object_or_404(Guest, pk=pk)
+    guest.delete()
+    messages.success(request, "Guest deleted successfully.")
+    return redirect('view_guests')

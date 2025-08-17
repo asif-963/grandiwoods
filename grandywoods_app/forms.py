@@ -1,5 +1,5 @@
 from django import forms
-from .models import ContactModel, NearByPlace, ClientReview, Gallery, Folder, Booking, RoomPrice
+from .models import ContactModel, NearByPlace, ClientReview, Gallery, Folder, Booking, RoomPrice, Guest
 
 
 
@@ -45,6 +45,14 @@ class BookingForm(forms.ModelForm):
         # Correct format for <input type="date">
         self.fields['arrival_date'].input_formats = ['%Y-%m-%d']
         self.fields['departure_date'].input_formats = ['%Y-%m-%d']
+
+
+#Guests 
+class GuestForm(forms.ModelForm):
+    class Meta:
+        model = Guest
+        fields = '__all__'
+
 
 
 

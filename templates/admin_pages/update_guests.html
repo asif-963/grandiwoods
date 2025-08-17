@@ -1,0 +1,72 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h4 class="card-title mb-4">Update Guest</h4>
+
+          <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Name -->
+            <div class="form-group mb-3">
+              <label for="id_name" class="form-label fw-semibold">Name</label>
+              {{ form.name }}
+            </div>
+
+        
+
+            
+
+            <!-- Current Image -->
+            {% if guest.image %}
+              <div class="form-group mb-4">
+                <label class="form-label fw-semibold">Current Image</label><br>
+                <img src="{{ guest.image.url }}" alt="{{ guest.name }}" 
+                     class="img-thumbnail shadow-sm" 
+                     style="width:120px;height:120px;object-fit:cover;">
+              </div>
+            {% endif %}
+            <!-- Image Upload -->
+            <div class="form-group mb-3">
+              <label for="id_image" class="form-label fw-semibold">Upload New Image</label>
+              {{ form.image }}
+            </div>
+
+            <!-- Buttons -->
+            <button type="submit" class="btn btn-primary px-4">Update</button>
+            <a href="{% url 'view_guests' %}" class="btn btn-secondary ms-2 px-4">Cancel</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Extra Styling -->
+<style>
+/* Apply bootstrap-like style to Django fields */
+input[type="text"], 
+input[type="email"], 
+input[type="file"], 
+textarea, 
+select {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+</style>
+{% endblock %}

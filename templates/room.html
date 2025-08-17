@@ -121,171 +121,189 @@
       </div>
     </div><!-- End Page Title -->
 
-   <!-- Specials Section -->
-    <section id="specials" class="specials section">
+<!-- Specials Section -->
+<section id="specials" class="specials section py-5 position-relative text-white" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('{% static "assets/img/r1.jpeg" %}') center/cover fixed no-repeat;">
 
-      <!-- Section Title -->
-  
+  <div class="container" data-aos="fade-up">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+   
 
-        <div class="row">
-          <div class="col-lg-3">
-            <ul class="nav nav-tabs flex-column">
-              <li class="nav-item">
-                <a class="nav-link active show" style="color: #fff;"  data-bs-toggle="tab" href="#specials-tab-1">About The Cottage</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="color: #fff;" data-bs-toggle="tab" href="#specials-tab-2">Amenities</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="color: #fff;"  data-bs-toggle="tab" href="#specials-tab-3">Rooms</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="color: #fff;"  data-bs-toggle="tab" href="#specials-tab-4">Bathroom</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="color: #fff;"  data-bs-toggle="tab" href="#specials-tab-5">Outdoor</a>
-              </li>
-            </ul>
+    <!-- Tab Navigation -->
+    <ul class="nav nav-pills justify-content-center mb-5 gap-3" id="specials-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" data-bs-toggle="tab" href="#specials-1"><i class="bi bi-house-heart me-2"></i>About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#specials-2"><i class="bi bi-stars me-2"></i>Amenities</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#specials-3"><i class="bi bi-door-open me-2"></i>Rooms</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#specials-4"><i class="bi bi-droplet-half me-2"></i>Bathroom</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" data-bs-toggle="tab" href="#specials-5"><i class="bi bi-tree me-2"></i>Outdoor</a>
+      </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+
+      <!-- About -->
+      <div class="tab-pane fade show active" id="specials-1">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <img src="{% static 'assets/img/r1.jpeg' %}" alt="Cottage" class="img-fluid rounded-4 shadow-lg">
           </div>
-          <div class="col-lg-9 mt-4 mt-lg-0">
-            <div class="tab-content">
-              <div class="tab-pane active show" id="specials-tab-1">
-                <div class="row">
-                  <div class="col-lg-8 details order-2 order-lg-1">
-                    <h3>About The Cottage</h3>
-                    <p class="fst-italic">Nestled in the heart of serene woodlands, our rooms at Grandi Woods offer a perfect blend of rustic charm and modern luxury. Each room is thoughtfully designed to provide you with comfort, privacy, and a deep connection to nature. <br>
+          <div class="col-lg-6">
+            <h3 class="fw-bold">About The Cottage</h3>
+            <p>
+              Discover serenity at Grandi Woods, where rustic charm meets modern luxury. Wake to birdsong, sip tea with forest views, and unwind under starry skies.
+            </p>
 
-          Wake up to the gentle rustle of leaves and the melodious call of birds as sunlight filters through tall trees. Step out onto your private balcony to witness breathtaking views of the surrounding forest, 
-        mist-covered hills, and winding woodland trails. Whether you're sipping morning tea or stargazing at night, the views never disappoint.</p>
-                  </div>
-             
-                </div>
-              </div>
-             <div class="tab-pane active show" id="specials-tab-2">
+            <p>
+              Nestled in the heart of Vattavada, Grandi Woods Cottage offers a peaceful escape surrounded by rolling hills, misty mornings, and lush vegetable farms. Its wooden interiors, warm ambience, and thoughtfully designed spaces create the perfect blend of tradition and comfort.
+            </p>
+
+            <p>
+              Guests can enjoy nature walks, explore nearby trekking trails, or simply relax by the fireplace with a cup of locally brewed tea. Whether you're seeking solitude or a cozy retreat with family and friends, Grandi Woods invites you to experience the untouched beauty of Vattavada in its purest form.
+            </p>
+
+            <p>
+              With panoramic views of forests and valleys, every moment at Grandi Woods feels like stepping into a postcard. The cottage is more than just a stay—it's a chance to reconnect with nature, recharge your soul, and take home timeless memories.
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Amenities -->
+     <div class="tab-pane fade" id="specials-2">
   <div class="row g-4">
-    <!-- Icon Card -->
     <div class="col-md-4">
-      <div class="card text-center border-0 shadow-sm p-4 h-100" style="background-color: #477022; color: white;">
-        <div class="mb-3">
-          <i class="bi bi-wifi" style="font-size: 2rem; color: white;"></i>
-        </div>
-        <h5 class="card-title">Free Wi-Fi</h5>
-        <p class="card-text">Stay connected with complimentary high-speed internet access.</p>
+      <div class="glass-card p-4 text-center">
+        <i class="bi bi-wifi display-6 mb-3"></i>
+        <h5 class="fw-bold">Free Wi-Fi</h5>
+        <p>Stay connected with high-speed internet access.</p>
       </div>
     </div>
-
     <div class="col-md-4">
-      <div class="card text-center border-0 shadow-sm p-4 h-100" style="background-color: #477022; color: white;">
-        <div class="mb-3">
-          <i class="bi bi-snow" style="font-size: 2rem; color: white;"></i>
-        </div>
-        <h5 class="card-title">Air Conditioning</h5>
-        <p class="card-text">Experience year-round comfort with our fully air-conditioned rooms.</p>
+      <div class="glass-card p-4 text-center">
+        <i class="bi bi-cup-hot display-6 mb-3"></i>
+        <h5 class="fw-bold">Breakfast</h5>
+        <p>Enjoy a wholesome complimentary breakfast daily.</p>
       </div>
     </div>
-
     <div class="col-md-4">
-      <div class="card text-center border-0 shadow-sm p-4 h-100" style="background-color: #477022; color: white;">
-        <div class="mb-3">
-          <i class="bi bi-image" style="font-size: 2rem; color: white;"></i>
-        </div>
-        <h5 class="card-title">Balcony View</h5>
-        <p class="card-text">Enjoy a stunning view of the surrounding forest right from your balcony.</p>
+      <div class="glass-card p-4 text-center">
+        <i class="bi bi-snow display-6 mb-3"></i>
+        <h5 class="fw-bold">Air Conditioning</h5>
+        <p>Stay comfortable with climate-controlled rooms.</p>
       </div>
     </div>
-
+    <!-- New Cottage-Friendly Facilities -->
     <div class="col-md-4">
-      <div class="card text-center border-0 shadow-sm p-4 h-100" style="background-color: #477022; color: white;">
-        <div class="mb-3">
-          <i class="bi bi-tv" style="font-size: 2rem; color: white;"></i>
-        </div>
-        <h5 class="card-title">Smart TV</h5>
-        <p class="card-text">Relax with access to popular streaming services and cable channels.</p>
+      <div class="glass-card p-4 text-center">
+        <i class="bi bi-fire display-6 mb-3"></i>
+        <h5 class="fw-bold">Cozy Fireplace</h5>
+        <p>Unwind by a warm fireplace during chilly evenings.</p>
       </div>
     </div>
-
     <div class="col-md-4">
-      <div class="card text-center border-0 shadow-sm p-4 h-100" style="background-color: #477022; color: white;">
-        <div class="mb-3">
-          <i class="bi bi-cup-hot" style="font-size: 2rem; color: white;"></i>
-        </div>
-        <h5 class="card-title">Complimentary Breakfast</h5>
-        <p class="card-text">Start your day with a delicious breakfast, included with every stay.</p>
+      <div class="glass-card p-4 text-center">
+        <i class="bi bi-tree display-6 mb-3"></i>
+        <h5 class="fw-bold">Nature Walks</h5>
+        <p>Explore scenic trails and enjoy the beauty of Vattavada.</p>
       </div>
     </div>
-
     <div class="col-md-4">
-      <div class="card text-center border-0 shadow-sm p-4 h-100" style="background-color: #477022; color: white;">
-        <div class="mb-3">
-          <i class="bi bi-shield-lock" style="font-size: 2rem; color: white;"></i>
-        </div>
-        <h5 class="card-title">Secure Access</h5>
-        <p class="card-text">Feel safe with 24/7 monitored access and keycard entry system.</p>
+      <div class="glass-card p-4 text-center">
+        <i class="bi bi-car-front display-6 mb-3"></i>
+        <h5 class="fw-bold">Free Parking</h5>
+        <p>Convenient and secure parking space for your vehicle.</p>
       </div>
     </div>
   </div>
 </div>
+
+
+      <!-- Rooms -->
+      <div class="tab-pane fade" id="specials-3">
+        <div class="row g-3">
+          <div class="col-md-6"><img src="{% static 'assets/img/r2.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+          <div class="col-md-6"><img src="{% static 'assets/img/r3.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+          <div class="col-md-6"><img src="{% static 'assets/img/r4.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+          <div class="col-md-6"><img src="{% static 'assets/img/r5.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+        </div>
+      </div>
+
+      <!-- Bathroom -->
+      <!-- <div class="tab-pane fade" id="specials-4">
+        <div class="row g-3">
+          <div class="col-md-6"><img src="{% static 'assets/img/bath1.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+          <div class="col-md-6"><img src="{% static 'assets/img/bath2.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+        </div>
+      </div> -->
+
+      <!-- Outdoor -->
+      <div class="tab-pane fade" id="specials-5">
+        <div class="row g-3">
+          <div class="col-md-6"><img src="{% static 'assets/img/o2.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+          <div class="col-md-6"><img src="{% static 'assets/img/o3.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+          <div class="col-md-6"><img src="{% static 'assets/img/o4.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+          <div class="col-md-6"><img src="{% static 'assets/img/o5.jpg' %}" class="img-fluid rounded-4 gallery-img shadow-lg" onclick="openLightbox(this)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+ <!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
+</div>
+
+
+</section>
+
+<!-- Styles -->
 <style>
-  .card:hover {
-  transform: scale(1.02);
-  transition: all 0.3s ease-in-out;
+.nav-pills .nav-link {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-radius: 30px;
+  padding: 10px 20px;
+  transition: 0.3s;
 }
-
-</style>
-        <div class="tab-pane" id="specials-tab-3">
-  <div class="row">
-    <!-- Image Gallery -->
-    <div class="col-12">
-      <div class="row g-4">
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero2.jpg' %}" alt="Gallery 1" class="img-fluid gallery-img" onclick="openLightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero2.jpg' %}" alt="Gallery 2" class="img-fluid gallery-img" onclick="openLightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero2.jpg' %}" alt="Gallery 3" class="img-fluid gallery-img" onclick="openLightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero2.jpg' %}" alt="Gallery 4" class="img-fluid gallery-img" onclick="openLightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero2.jpg' %}" alt="Gallery 5" class="img-fluid gallery-img" onclick="openLightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero2.jpg' %}" alt="Gallery 6" class="img-fluid gallery-img" onclick="openLightbox(this)">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-    <img class="lightbox-content" id="lightbox-img">
-  </div>
-</div>
-<style>
-  .gallery-img {
-  cursor: pointer;
-  border-radius: 10px;
+.nav-pills .nav-link.active {
+  background: #477022;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  color: #fff;
   transition: transform 0.3s ease;
 }
-.gallery-img:hover {
-  transform: scale(1.03);
+.glass-card:hover {
+  transform: translateY(-6px) scale(1.03);
 }
-
+.gallery-img {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.gallery-img:hover {
+  transform: scale(1.05);
+}
 .lightbox {
-  display: none;
+  display: none;   /* ✅ hidden by default */
   position: fixed;
-  z-index: 1050;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
   align-items: center;
   justify-content: center;
 }
@@ -293,226 +311,33 @@
 .lightbox-content {
   max-width: 90%;
   max-height: 80%;
-  margin: auto;
-  display: block;
-  border-radius: 10px;
+  border-radius: 12px;
 }
-
 .lightbox-close {
   position: absolute;
-  top: 30px;
-  right: 40px;
+  top: 20px; right: 30px;
   font-size: 40px;
   color: white;
   cursor: pointer;
-  z-index: 1060;
 }
-
 </style>
-<script>
 
+<!-- Script -->
+<script>
 function openLightbox(imgElement) {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
   lightboxImg.src = imgElement.src;
-  lightbox.style.display = "flex";
+  lightbox.style.display = "flex";  // only opens when an image is clicked
 }
 
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
+
+
 </script>
 
-
-              <div class="tab-pane" id="specials-tab-4">
-  <div class="row">
-    <div class="col-12">
-      <div class="row g-4">
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero4.jpg' %}" alt="Gallery 1" class="img-fluid tab4-gallery-img" onclick="openTab4Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero4.jpg' %}" alt="Gallery 2" class="img-fluid tab4-gallery-img" onclick="openTab4Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero4.jpg' %}" alt="Gallery 3" class="img-fluid tab4-gallery-img" onclick="openTab4Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero4.jpg' %}" alt="Gallery 4" class="img-fluid tab4-gallery-img" onclick="openTab4Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero4.jpg' %}" alt="Gallery 5" class="img-fluid tab4-gallery-img" onclick="openTab4Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero4.jpg' %}" alt="Gallery 6" class="img-fluid tab4-gallery-img" onclick="openTab4Lightbox(this)">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Unique Lightbox Modal -->
-  <div id="tab4-lightbox" class="tab4-lightbox" onclick="closeTab4Lightbox()">
-    <span class="tab4-lightbox-close" onclick="closeTab4Lightbox()">&times;</span>
-    <img class="tab4-lightbox-content" id="tab4-lightbox-img">
-  </div>
-
-  <!-- Scoped CSS -->
-  <style>
-    .tab4-gallery-img {
-      cursor: pointer;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .tab4-gallery-img:hover {
-      transform: scale(1.03);
-    }
-
-    .tab4-lightbox {
-      display: none;
-      position: fixed;
-      z-index: 1050;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      align-items: center;
-      justify-content: center;
-    }
-
-    .tab4-lightbox-content {
-      max-width: 90%;
-      max-height: 80%;
-      margin: auto;
-      display: block;
-      border-radius: 10px;
-    }
-
-    .tab4-lightbox-close {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 40px;
-      color: white;
-      cursor: pointer;
-      z-index: 1060;
-    }
-  </style>
-
-  <!-- Scoped JavaScript -->
-  <script>
-    function openTab4Lightbox(imgElement) {
-      const lightbox = document.getElementById("tab4-lightbox");
-      const lightboxImg = document.getElementById("tab4-lightbox-img");
-      lightboxImg.src = imgElement.src;
-      lightbox.style.display = "flex";
-    }
-
-    function closeTab4Lightbox() {
-      document.getElementById("tab4-lightbox").style.display = "none";
-    }
-  </script>
-</div>
-
-              <div class="tab-pane" id="specials-tab-5">
-  <div class="row">
-    <div class="col-12">
-      <div class="row g-4">
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero3.jpg' %}" alt="Gallery 7" class="img-fluid tab5-gallery-img" onclick="openTab5Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero3.jpg' %}" alt="Gallery 8" class="img-fluid tab5-gallery-img" onclick="openTab5Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero3.jpg' %}" alt="Gallery 9" class="img-fluid tab5-gallery-img" onclick="openTab5Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero3.jpg' %}" alt="Gallery 10" class="img-fluid tab5-gallery-img" onclick="openTab5Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero3.jpg' %}" alt="Gallery 11" class="img-fluid tab5-gallery-img" onclick="openTab5Lightbox(this)">
-        </div>
-        <div class="col-md-6">
-          <img src="{% static 'assets/img/hero3.jpg' %}" alt="Gallery 12" class="img-fluid tab5-gallery-img" onclick="openTab5Lightbox(this)">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Lightbox Modal -->
-  <div id="tab5-lightbox" class="tab5-lightbox" onclick="closeTab5Lightbox()">
-    <span class="tab5-lightbox-close" onclick="closeTab5Lightbox()">&times;</span>
-    <img class="tab5-lightbox-content" id="tab5-lightbox-img">
-  </div>
-
-  <!-- Scoped CSS -->
-  <style>
-    .tab5-gallery-img {
-      cursor: pointer;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .tab5-gallery-img:hover {
-      transform: scale(1.03);
-    }
-
-    .tab5-lightbox {
-      display: none;
-      position: fixed;
-      z-index: 1050;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      align-items: center;
-      justify-content: center;
-    }
-
-    .tab5-lightbox-content {
-      max-width: 90%;
-      max-height: 80%;
-      margin: auto;
-      display: block;
-      border-radius: 10px;
-    }
-
-    .tab5-lightbox-close {
-      position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 40px;
-      color: white;
-      cursor: pointer;
-      z-index: 1060;
-    }
-  </style>
-
-  <!-- Scoped JS -->
-  <script>
-    function openTab5Lightbox(imgElement) {
-      const lightbox = document.getElementById("tab5-lightbox");
-      const lightboxImg = document.getElementById("tab5-lightbox-img");
-      lightboxImg.src = imgElement.src;
-      lightbox.style.display = "flex";
-    }
-
-    function closeTab5Lightbox() {
-      document.getElementById("tab5-lightbox").style.display = "none";
-    }
-  </script>
-</div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Specials Section -->
 
    
 <section id="events" class="events section">

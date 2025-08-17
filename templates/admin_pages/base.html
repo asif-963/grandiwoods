@@ -233,6 +233,23 @@
     </li>
 
 
+    <li class="nav-item nav-category">Guests</li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#contact1222" aria-expanded="false" aria-controls="contact">
+        <i class="menu-icon mdi mdi-application"></i>
+        <span class="menu-title">Guests</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="contact1222">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{% url 'add_guest' %}"> Add Guests</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'view_guests' %}"> View Guests</a></li>
+         
+        </ul>
+      </div>
+    </li>
+
+
     <li class="nav-item nav-category">Bookings</li>
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#b1" aria-expanded="false" aria-controls="contact">
@@ -288,7 +305,7 @@
       </a>
       <div class="collapse" id="chatbot1">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="logout_user">Sign Out</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'logout_user' %}">Sign Out</a></li>
           <!-- <li class="nav-item"> <a class="nav-link" href="../pages/ui-features/dropdowns.html">Dropdowns</a></li>
           <li class="nav-item"> <a class="nav-link" href="../pages/ui-features/typography.html">Typography</a></li> -->
         </ul>

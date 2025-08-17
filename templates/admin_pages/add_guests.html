@@ -1,0 +1,48 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Add Guest</h4>
+
+          <form class="forms-sample" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Guest Name -->
+            <div class="form-group">
+              <label for="id_name">Guest Name</label>
+              <input type="text" 
+                     class="form-control" 
+                     id="id_name" 
+                     name="name" 
+                     placeholder="Enter guest name" 
+                     value="{{ form.name.value|default:'' }}" 
+                     required>
+            </div>
+
+            <!-- Guest Image -->
+            <div class="form-group">
+              <label for="id_image">Upload Guest Image</label>
+              <input type="file" 
+                     class="form-control-file" 
+                     id="id_image" 
+                     name="image" 
+                     accept="image/*" 
+                     required>
+            </div>
+
+            <!-- Buttons -->
+            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <a href="{% url 'view_guests' %}" class="btn btn-secondary">Cancel</a>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

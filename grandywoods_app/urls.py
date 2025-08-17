@@ -65,6 +65,13 @@ urlpatterns = [
     path('delete-chatbot-message/<int:message_id>/', views.delete_chatbot_message, name='delete_chatbot_message'),
 
 
+    # Guests
+    path('guests/add/', views.add_guest, name='add_guest'),
+    path('guests/', views.view_guests, name='view_guests'),
+    path('guests/update/<int:pk>/', views.update_guest, name='update_guest'),
+    path('guests/delete/<int:pk>/', views.delete_guest, name='delete_guest'),
+
+
     #robots.txt
 
 
